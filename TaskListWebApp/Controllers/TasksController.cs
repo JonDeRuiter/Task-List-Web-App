@@ -27,6 +27,7 @@ namespace TaskListWebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             Task task = db.Tasks.Find(id);
             if (task == null)
             {

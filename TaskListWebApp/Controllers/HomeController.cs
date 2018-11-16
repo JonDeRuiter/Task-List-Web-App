@@ -28,7 +28,7 @@ namespace TaskListWebApp.Controllers
         public ActionResult Contact(string email, string password)
         {
             User user = new User();
-            for (int i = 1; i < 2 ; i++)
+            for (int i = 1; i < 3 ; i++)
             {
                 user = db.Users.Find(i);
                 if ( user.Email == email)
@@ -44,8 +44,8 @@ namespace TaskListWebApp.Controllers
 
             if (password == user.Password)
             {
-                Session["Logged In"] = user;
-                return RedirectToAction("Details", "Tasks");
+                Session["Logged In"] = user.Email;
+                return RedirectToAction("Index", "Tasks");
             }
             else
             {
