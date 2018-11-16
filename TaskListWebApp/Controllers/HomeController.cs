@@ -26,5 +26,9 @@ namespace TaskListWebApp.Controllers
 
             return View();
         }
+        public ActionResult Welcome()
+        {
+            return View();
+        }
     }
 }

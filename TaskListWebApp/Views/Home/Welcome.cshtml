@@ -1,8 +1,12 @@
 ﻿<h1>Welcome</h1>
+<h3>To the Task List Manager</h3>
 
 
-<form></form>
-
-<form action="User/Create">    
-    <button type="submit">Reister as a New User</button>
+<form action="">
+    <input type="email" placeholder="email@email.com" />
+    <input type="password" placeholder="Password" />
+    <button type="submit">Log In</button>
 </form>
+<br /><br />
+
+@Html.ActionLink("Register as a New User", "Create", "Users") 
