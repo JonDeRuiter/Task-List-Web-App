@@ -1,15 +1,15 @@
 ﻿@model TaskListWebApp.Models.Task
 
 @{
-    ViewBag.Title = "Create";
+    string useremail = Session["Logged In"].ToString();
 }
 
-<h2>Create</h2>
+<h2>Create a new task</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Task</h4>
         <hr />
@@ -17,10 +17,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => @Session["Logged In"], new { htmlAttributes = new { @class = "form-control", @readonly = (ViewBag.CanEdit == true ? Html.Raw("") : Html.Raw("readonly")) } })
                 @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
             </div>
         </div>
+        <p>
+            @Html.Hidden("UserId", Session["Logged In"])
+
+        </p>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })

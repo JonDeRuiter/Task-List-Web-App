@@ -39,6 +39,8 @@ namespace TaskListWebApp.Controllers
         // GET: Tasks/Create
         public ActionResult Create()
         {
+            //Task newTask = new Task();
+            //newTask.UserId = Session["Logged In"].ToString();
             return View();
         }
 
@@ -49,6 +51,7 @@ namespace TaskListWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,UserId,Description,DueDate,Completed")] Task task)
         {
+
             if (ModelState.IsValid)
             {
                 db.Tasks.Add(task);

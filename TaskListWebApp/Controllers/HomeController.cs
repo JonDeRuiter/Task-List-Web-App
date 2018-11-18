@@ -28,10 +28,10 @@ namespace TaskListWebApp.Controllers
         public ActionResult Contact(string email, string password)
         {
             User user = new User();
-            for (int i = 1; i < 3 ; i++)
+            for (int i = 1; db.Users.Find(i) != null ; i++)
             {
                 user = db.Users.Find(i);
-                if ( user.Email == email)
+                if (user.Email == email)
                 {
                     break;
                 }

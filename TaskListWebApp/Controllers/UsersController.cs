@@ -52,7 +52,7 @@ namespace TaskListWebApp.Controllers
             {
                 db.Users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Welcome", "Home");
             }
 
             return View(user);
